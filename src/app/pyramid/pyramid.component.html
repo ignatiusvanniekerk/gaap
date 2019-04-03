@@ -1,0 +1,27 @@
+<div>
+  <div>Question one:</div>
+  Given a pyramid of odd numbers starting with 1 at the top, write a function that takes any
+    row number and returns the sum of that row.
+</div>
+
+<div *ngIf="!pyramidOddArray">
+  Please input row amount.
+  <input [(ngModel)]="pyramidRowNumber" #ctrl="ngModel" placeholder="Number of rows" type="number" required>
+
+  <button (click)="createPyramidArray()">generate number</button>
+
+</div>
+<div *ngIf="pyramidOddArray">
+  <div *ngFor="let oddArray of pyramidOddArray" class="center-text">
+    {{ oddArray }}
+  </div>
+
+  <input [(ngModel)]="rowNumber" #ctrl="ngModel" placeholder="row number to calculate" type="number" required>
+
+  <button (click)="sumOfRow(rowNumber)">calculate row</button>
+</div>
+<div *ngIf="sumTotal">
+  Sum total
+  {{sumTotal}}
+</div>
+

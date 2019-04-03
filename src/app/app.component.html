@@ -1,3 +1,9 @@
 <h1>
   {{title}}
 </h1>
+<button (click)="changeQuestion(1)">Question 1</button>
+<button (click)="changeQuestion(2)">Question 2</button>
+<button (click)="changeQuestion(3)">Question 3</button>
+<app-pyramid *ngIf="toDisplay === 1"></app-pyramid>
+<app-array-schema-colours *ngIf="toDisplay === 2"></app-array-schema-colours>
+<app-data-changer *ngIf="toDisplay === 3" ></app-data-changer>

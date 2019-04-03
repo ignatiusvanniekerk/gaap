@@ -1,0 +1,43 @@
+<div>
+  <div>Question three:</div>
+  Write a function that takes exactly 2 parameters, rowData and changedValue.
+  the function should return rowData with recalculated values, based on the changedValue
+  object.
+  rowData schema:
+  <div>id: number, name: string, taxPercentage: number, qty: number, unitCostExcluding: number,
+    lineTotalExcluding: number, lineTotalTax: number, lineTotalIncluding: number</div>
+  changedValue schema would be any of the fields above excluding id, name, taxPercentage and lineTotalTax
+  with the new changed number: i.e: <div>qty: 5</div>
+</div>
+
+
+  <table>
+    <tr>
+      <th>Row</th>
+      <th>ID</th>
+      <th>NAME</th>
+      <th>Tax Percentage</th>
+      <th>QTY</th>
+      <th>Unit Cost Excluding</th>
+      <th>Line Total Excluding</th>
+      <th>Line Total Tax</th>
+      <th>Line Total Including</th>
+    </tr>
+    <tr *ngFor="let data of mockData; let indexNumber = index" [attr.data-index]="indexNumber">
+      <td>{{indexNumber}}</td>
+      <td>{{data.id}}</td>
+      <td>{{data.name}}</td>
+      <td>{{data.taxPercentage}}</td>
+      <td>{{data.qty}}</td>
+      <td>{{data.unitCostExcluding}}</td>
+      <td>{{data.lineTotalExcluding}}</td>
+      <td>{{data.lineTotalTax}}</td>
+      <td>{{data.lineTotalIncluding}}</td>
+    </tr>
+  </table>
+<select [(ngModel)]="changeObj.selectedField">
+  <option *ngFor="let data of allowedToChange" [value]="data" [selected]="data == changeObj?.selectedField">{{data}}</option>
+</select>
+<input [(ngModel)]="rowNumber"  placeholder="Row number" type="number" required>
+<input [(ngModel)]="changeObj.itemValue"  placeholder="Value to change" type="number" required>
+<button *ngIf="changeObj.itemValue >= 0 && rowNumber <= mockData.length && changeObj.selectedField" (click)="changeValues(rowNumber, changeObj)">Submit changes</button>

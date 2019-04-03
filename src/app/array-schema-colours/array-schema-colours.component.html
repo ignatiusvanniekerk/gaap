@@ -1,0 +1,30 @@
+<div>
+  <div>Question two:</div>
+  Given an array of data where each object has the schema of
+  <div>type: string, value: number, enabled: Boolean</div>
+  Write a function that takes the data as parameter, calculates and returns a summary value based on
+  the following rules:
+  <ol>
+    <li>If type is Red and enabled add the value</li>
+    <li>If type is Red and not enabled multiply by 0</li>
+    <li>If type is Blue and enabled subtract the value</li>
+    <li>If type is Blue and not enabled multiply by 0</li>
+    <li>If type is Green and enabled multiply the value</li>
+    <li>If type is Green and not enabled multiply by 0</li>
+    <li>If type is None of the Above add 0</li>
+  </ol>
+</div>
+
+<div *ngIf="!calculateArray">
+  <button (click)="useMockData()">Use mock data</button>
+</div>
+
+<div *ngFor="let array of calculateArray" >
+  {{array | json}}
+</div>
+<div *ngIf="calculateArray">
+  <button (click)="calculateSum()">Calculate sum of  data</button>
+</div>
+<div>
+  Total : {{totalValue}}
+</div>

@@ -6,5 +6,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'app works!';
+  public title = 'Gaap Test';
+
+  public toDisplay: number = 1;
+
+  public changeQuestion(question: number): void {
+    this.toDisplay = question;
+  }
 }
